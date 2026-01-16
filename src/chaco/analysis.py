@@ -6,14 +6,253 @@ Provides tools for:
 2. Strategy comparison and outcome analysis
 3. Temporal dynamics visualization
 4. Statistical summaries
+5. Replicate analysis and confidence intervals
 """
 
 import numpy as np
 import pandas as pd
-from typing import List, Dict, Optional, Tuple
-from dataclasses import dataclass
+from typing import List, Dict, Optional, Tuple, Any
+from dataclasses import dataclass, field
+from scipy import stats
 
 from .simulation import SimulationState, Strategy
+
+
+@dataclass
+class ReplicateStatistics:
+    """Statistics aggregated across replicates."""
+    metric_name: str
+    mean: float
+    std: float
+    ci_lower: float
+    ci_upper: float
+    n_replicates: int
+    values: List[float] = field(default_factory=list)
+
+
+@dataclass
+class ScenarioResults:
+    """Results from running a scenario with multiple replicates."""
+    scenario_name: str
+    n_replicates: int
+    final_population: ReplicateStatistics
+    peak_population: ReplicateStatistics
+    total_monuments: ReplicateStatistics
+    total_exotics: ReplicateStatistics
+    total_conflicts: ReplicateStatistics
+    construction_climate_r: ReplicateStatistics
+    exotic_stress_r: ReplicateStatistics
+    drought_years: ReplicateStatistics
+    histories: List[pd.DataFrame] = field(default_factory=list)
+
+
+def calculate_confidence_interval(
+    values: List[float],
+    confidence: float = 0.95
+) -> Tuple[float, float, float, float]:
+    """
+    Calculate mean, standard deviation, and confidence interval.
+
+    Args:
+        values: List of numeric values
+        confidence: Confidence level (default 0.95 for 95% CI)
+
+    Returns:
+        Tuple of (mean, std, ci_lower, ci_upper)
+    """
+    if not values or len(values) < 2:
+        return (np.nan, np.nan, np.nan, np.nan)
+
+    arr = np.array(values)
+    arr = arr[~np.isnan(arr)]
+
+    if len(arr) < 2:
+        return (np.nan, np.nan, np.nan, np.nan)
+
+    mean = np.mean(arr)
+    std = np.std(arr, ddof=1)
+    n = len(arr)
+
+    # t-distribution for small samples
+    t_val = stats.t.ppf((1 + confidence) / 2, n - 1)
+    margin = t_val * (std / np.sqrt(n))
+
+    return (mean, std, mean - margin, mean + margin)
+
+
+def create_replicate_statistics(
+    values: List[float],
+    metric_name: str,
+    confidence: float = 0.95
+) -> ReplicateStatistics:
+    """
+    Create ReplicateStatistics from a list of values.
+
+    Args:
+        values: List of metric values across replicates
+        metric_name: Name of the metric
+        confidence: Confidence level
+
+    Returns:
+        ReplicateStatistics object
+    """
+    mean, std, ci_lower, ci_upper = calculate_confidence_interval(values, confidence)
+
+    return ReplicateStatistics(
+        metric_name=metric_name,
+        mean=mean,
+        std=std,
+        ci_lower=ci_lower,
+        ci_upper=ci_upper,
+        n_replicates=len([v for v in values if not np.isnan(v)]),
+        values=values
+    )
+
+
+def aggregate_replicate_results(
+    histories: List[List[SimulationState]],
+    scenario_name: str
+) -> ScenarioResults:
+    """
+    Aggregate results from multiple simulation replicates.
+
+    Args:
+        histories: List of simulation histories (one per replicate)
+        scenario_name: Name for this scenario
+
+    Returns:
+        ScenarioResults with aggregated statistics
+    """
+    final_pops = []
+    peak_pops = []
+    monuments = []
+    exotics = []
+    conflicts = []
+    constr_rs = []
+    exotic_rs = []
+    drought_counts = []
+    history_dfs = []
+
+    for history in histories:
+        if not history:
+            continue
+
+        df = history_to_dataframe(history)
+        history_dfs.append(df)
+
+        # Final state metrics
+        final = history[-1]
+        final_pops.append(final.total_population)
+        monuments.append(final.total_monument_investment)
+        exotics.append(final.total_exotic_goods)
+        conflicts.append(final.total_conflicts)
+
+        # Peak population
+        peak_pops.append(df['total_population'].max())
+
+        # Drought years
+        drought_counts.append(df['is_drought'].sum())
+
+        # Correlations
+        r_constr, _ = calculate_construction_climate_correlation(history)
+        r_exotic, _ = calculate_exotic_stress_correlation(history)
+        constr_rs.append(r_constr)
+        exotic_rs.append(r_exotic)
+
+    return ScenarioResults(
+        scenario_name=scenario_name,
+        n_replicates=len(histories),
+        final_population=create_replicate_statistics(final_pops, "final_population"),
+        peak_population=create_replicate_statistics(peak_pops, "peak_population"),
+        total_monuments=create_replicate_statistics(monuments, "total_monuments"),
+        total_exotics=create_replicate_statistics(exotics, "total_exotics"),
+        total_conflicts=create_replicate_statistics(conflicts, "total_conflicts"),
+        construction_climate_r=create_replicate_statistics(constr_rs, "construction_climate_r"),
+        exotic_stress_r=create_replicate_statistics(exotic_rs, "exotic_stress_r"),
+        drought_years=create_replicate_statistics(drought_counts, "drought_years"),
+        histories=history_dfs
+    )
+
+
+def format_stat_with_ci(stat: ReplicateStatistics, decimals: int = 2) -> str:
+    """
+    Format a statistic with confidence interval for reporting.
+
+    Args:
+        stat: ReplicateStatistics object
+        decimals: Number of decimal places
+
+    Returns:
+        Formatted string like "1234.56 ± 123.45 (95% CI [1111.11, 1357.90])"
+    """
+    if np.isnan(stat.mean):
+        return "N/A"
+
+    if decimals == 0:
+        return (f"{stat.mean:,.0f} ± {stat.std:,.0f} "
+                f"(95% CI [{stat.ci_lower:,.0f}, {stat.ci_upper:,.0f}])")
+    else:
+        fmt = f",.{decimals}f"
+        return (f"{stat.mean:{fmt}} ± {stat.std:{fmt}} "
+                f"(95% CI [{stat.ci_lower:{fmt}}, {stat.ci_upper:{fmt}}])")
+
+
+def format_correlation_with_ci(stat: ReplicateStatistics) -> str:
+    """
+    Format a correlation with confidence interval.
+
+    Args:
+        stat: ReplicateStatistics for correlation values
+
+    Returns:
+        Formatted string like "r = -0.45 (95% CI [-0.52, -0.38])"
+    """
+    if np.isnan(stat.mean):
+        return "r = N/A"
+
+    return f"r = {stat.mean:.3f} (95% CI [{stat.ci_lower:.3f}, {stat.ci_upper:.3f}])"
+
+
+def generate_replicate_summary_report(
+    results: ScenarioResults
+) -> str:
+    """
+    Generate a summary report from replicate analysis.
+
+    Args:
+        results: ScenarioResults object
+
+    Returns:
+        Formatted text report
+    """
+    lines = [
+        "=" * 70,
+        f"REPLICATE ANALYSIS: {results.scenario_name}",
+        f"N = {results.n_replicates} replicates",
+        "=" * 70,
+        "",
+        "--- POPULATION METRICS ---",
+        f"Final Population: {format_stat_with_ci(results.final_population, 0)}",
+        f"Peak Population: {format_stat_with_ci(results.peak_population, 0)}",
+        "",
+        "--- INVESTMENT METRICS ---",
+        f"Total Monuments: {format_stat_with_ci(results.total_monuments, 0)}",
+        f"Total Exotic Goods: {format_stat_with_ci(results.total_exotics, 0)}",
+        "",
+        "--- CONFLICT & CLIMATE ---",
+        f"Total Conflicts: {format_stat_with_ci(results.total_conflicts, 0)}",
+        f"Drought Years: {format_stat_with_ci(results.drought_years, 1)}",
+        "",
+        "--- KEY CORRELATIONS ---",
+        f"Construction-Climate: {format_correlation_with_ci(results.construction_climate_r)}",
+        f"  (Negative = more construction during drought)",
+        f"Exotic Goods-Stress: {format_correlation_with_ci(results.exotic_stress_r)}",
+        f"  (Positive = more exotics during stress)",
+        "",
+        "=" * 70,
+    ]
+
+    return "\n".join(lines)
 
 
 @dataclass

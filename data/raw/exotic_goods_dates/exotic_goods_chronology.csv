@@ -1,22 +1,22 @@
 item_type,context,date_ce,date_error,dating_method,count,location,notes,source
-scarlet_macaw,Room 38 burial,900,30,radiocarbon,1,Pueblo Bonito,Earliest documented macaw,Watson et al. 2015
-scarlet_macaw,Room 33,920,25,radiocarbon,2,Pueblo Bonito,Early macaws,Watson et al. 2015
-scarlet_macaw,Room 28,980,20,radiocarbon,3,Pueblo Bonito,Pre-florescence,Watson et al. 2015
-scarlet_macaw,Room 33,1020,20,radiocarbon,5,Pueblo Bonito,Early florescence,Watson et al. 2015
-scarlet_macaw,various,1050,30,radiocarbon,8,Pueblo Bonito,Peak florescence,Watson et al. 2015
-scarlet_macaw,various,1080,25,radiocarbon,6,Pueblo Bonito,Continued import,Watson et al. 2015
-scarlet_macaw,various,1100,20,radiocarbon,4,Pueblo Bonito,Late phase,Watson et al. 2015
-scarlet_macaw,various,1120,20,radiocarbon,2,Pueblo Bonito,Final imports before collapse,Watson et al. 2015
-turquoise,Room 33,850,50,context,5000,Pueblo Bonito,Early deposits,Crown et al. various
-turquoise,various,950,50,context,15000,Pueblo Bonito,Pre-florescence accumulation,Crown et al. various
-turquoise,various,1020,30,context,50000,Pueblo Bonito,Major accumulation during florescence,Crown et al. various
-turquoise,various,1080,30,context,80000,Pueblo Bonito,Peak accumulation,Crown et al. various
-turquoise,various,1100,30,context,40000,Pueblo Bonito,Continued but declining,Crown et al. various
-cacao,cylinder jars,1000,50,residue analysis,presence,Pueblo Bonito,Earliest cacao evidence,Crown & Hurst 2009
-cacao,cylinder jars,1050,30,residue analysis,presence,Pueblo Bonito,Florescence period,Crown & Hurst 2009
-cacao,cylinder jars,1100,30,residue analysis,presence,Pueblo Bonito,Late phase,Crown & Hurst 2009
-copper_bell,burial,1000,50,context,2,Pueblo Bonito,West Mexican origin,various
-copper_bell,various,1050,30,context,5,Pueblo Bonito,Peak imports,various
-marine_shell,various,900,50,context,500,Pueblo Bonito,Gulf of California origin,various
-marine_shell,various,1000,50,context,1500,Pueblo Bonito,Increased during florescence,various
-marine_shell,various,1080,30,context,2000,Pueblo Bonito,Peak accumulation,various
+scarlet_macaw,Room 38 burial,900,30,radiocarbon,1,Pueblo Bonito,Earliest documented macaw,Watson et al. 2015 PNAS
+scarlet_macaw,Room 33,920,25,radiocarbon,2,Pueblo Bonito,Early macaws,Watson et al. 2015 PNAS
+scarlet_macaw,Room 28,980,20,radiocarbon,3,Pueblo Bonito,Pre-florescence,Watson et al. 2015 PNAS
+scarlet_macaw,Room 33,1020,20,radiocarbon,5,Pueblo Bonito,Early florescence,Watson et al. 2015 PNAS
+scarlet_macaw,various,1050,30,radiocarbon,8,Pueblo Bonito,Peak florescence,Watson et al. 2015 PNAS
+scarlet_macaw,various,1080,25,radiocarbon,6,Pueblo Bonito,Continued import,Watson et al. 2015 PNAS
+scarlet_macaw,various,1100,20,radiocarbon,4,Pueblo Bonito,Late phase,Watson et al. 2015 PNAS
+scarlet_macaw,various,1120,20,radiocarbon,2,Pueblo Bonito,Final imports before collapse,Watson et al. 2015 PNAS
+turquoise,Room 33,850,50,context,5000,Pueblo Bonito,Early deposits,Mathien 2001 American Antiquity
+turquoise,various,950,50,context,15000,Pueblo Bonito,Pre-florescence accumulation,Mathien 2001 American Antiquity
+turquoise,various,1020,30,context,50000,Pueblo Bonito,Major accumulation during florescence,Mathien 2001 American Antiquity
+turquoise,various,1080,30,context,80000,Pueblo Bonito,Peak accumulation,Hull et al. 2014 JAS
+turquoise,various,1100,30,context,40000,Pueblo Bonito,Continued but declining,Hull et al. 2014 JAS
+cacao,cylinder jars,1000,50,residue analysis,presence,Pueblo Bonito,Earliest cacao evidence,Crown & Hurst 2009 PNAS
+cacao,cylinder jars,1050,30,residue analysis,presence,Pueblo Bonito,Florescence period,Crown & Hurst 2009 PNAS
+cacao,cylinder jars,1100,30,residue analysis,presence,Pueblo Bonito,Late phase,Crown 2020 UNM Press
+copper_bell,burial,1000,50,context,2,Pueblo Bonito,West Mexican origin,Vargas 1995 ASM
+copper_bell,various,1050,30,context,5,Pueblo Bonito,Peak imports,Vargas 1995 ASM
+marine_shell,Room 33 burial,900,50,context,500,Pueblo Bonito,Gulf of California origin,Mathien 1997 NPS
+marine_shell,various,1000,50,context,1500,Pueblo Bonito,Increased during florescence,Mathien 1997 NPS
+marine_shell,various,1080,30,context,2000,Pueblo Bonito,Peak accumulation,Mathien 1997 NPS

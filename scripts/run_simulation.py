@@ -104,12 +104,13 @@ def run_megadrought_scenario():
         starvation_death_rate=0.20,  # Higher mortality during drought
     )
 
-    # Create environment with more severe droughts
+    # Create environment with more severe drought effects
     env_config = EnvironmentConfig(
         start_year=500,
         end_year=1500,
         base_productivity=0.6,  # Even more marginal
-        pdsi_sensitivity=0.15,  # More sensitive to drought
+        pmdi_sensitivity=0.08,  # More sensitive to drought
+        min_productivity=0.15,  # Lower floor during severe drought
     )
 
     environment = Environment(env_config)

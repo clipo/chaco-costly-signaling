@@ -1,0 +1,68 @@
+{
+  "Pre-Chaco": {
+    "start_year": 500,
+    "end_year": 800,
+    "n_years": 300,
+    "mean_pmdi": 0.06544516970291667,
+    "std_pmdi": 2.2271946435611554,
+    "min_pmdi": -5.255628745893773,
+    "max_pmdi": 9.453954465231133,
+    "n_drought_years": 88,
+    "n_severe_drought": 23
+  },
+  "Early_Chaco": {
+    "start_year": 800,
+    "end_year": 920,
+    "n_years": 120,
+    "mean_pmdi": 0.09569489387152338,
+    "std_pmdi": 2.242803386205707,
+    "min_pmdi": -5.483429092294371,
+    "max_pmdi": 7.488146752234138,
+    "n_drought_years": 34,
+    "n_severe_drought": 12
+  },
+  "Chaco_Expansion": {
+    "start_year": 920,
+    "end_year": 1000,
+    "n_years": 80,
+    "mean_pmdi": 0.12445912907303418,
+    "std_pmdi": 2.260197164455364,
+    "min_pmdi": -4.470427392809275,
+    "max_pmdi": 7.632233416358736,
+    "n_drought_years": 23,
+    "n_severe_drought": 6
+  },
+  "Chaco_Florescence": {
+    "start_year": 1000,
+    "end_year": 1130,
+    "n_years": 130,
+    "mean_pmdi": 0.2924081195235585,
+    "std_pmdi": 1.9973666452715766,
+    "min_pmdi": -4.449794042067552,
+    "max_pmdi": 7.25183094498274,
+    "n_drought_years": 30,
+    "n_severe_drought": 6
+  },
+  "Megadrought_Collapse": {
+    "start_year": 1130,
+    "end_year": 1200,
+    "n_years": 70,
+    "mean_pmdi": -0.2686649722830247,
+    "std_pmdi": 1.9151580271437283,
+    "min_pmdi": -4.306746869770851,
+    "max_pmdi": 4.014969070435154,
+    "n_drought_years": 26,
+    "n_severe_drought": 6
+  },
+  "Post-Chaco": {
+    "start_year": 1200,
+    "end_year": 1500,
+    "n_years": 300,
+    "mean_pmdi": 0.22525810071265795,
+    "std_pmdi": 2.017594986982565,
+    "min_pmdi": -4.379654207092477,
+    "max_pmdi": 6.747337663303101,
+    "n_drought_years": 89,
+    "n_severe_drought": 11
+  }
+}
