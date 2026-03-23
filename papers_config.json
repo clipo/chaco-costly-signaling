@@ -1,0 +1,287 @@
+{
+  "ezproxy_base": "https://login.proxy.binghamton.edu/login?url=",
+  "output_dir": "docs/references/pdfs",
+  "min_valid_size_bytes": 10000,
+  "papers": [
+    {
+      "filename": "Kantner_Vaughn_2012.pdf",
+      "doi": "10.1016/j.jaa.2011.10.003",
+      "url": null,
+      "oa_url": null,
+      "status": "downloaded",
+      "note": "print-to-PDF (2,032,378 bytes)"
+    },
+    {
+      "filename": "Quinn_2019.pdf",
+      "doi": "10.1007/978-3-030-11117-5_14",
+      "url": null,
+      "oa_url": null,
+      "status": "downloaded",
+      "note": "print-to-PDF (1,082,385 bytes)"
+    },
+    {
+      "filename": "Roscoe_2009.pdf",
+      "doi": "10.1007/s10816-009-9062-3",
+      "url": null,
+      "oa_url": null,
+      "status": "downloaded",
+      "note": "publisher (442,616 bytes)"
+    },
+    {
+      "filename": "Plog_Heitman_2010.pdf",
+      "doi": "10.1073/pnas.1014985107",
+      "url": null,
+      "oa_url": null,
+      "status": "downloaded",
+      "note": "print-to-PDF (48,711 bytes)"
+    },
+    {
+      "filename": "Wills_2017.pdf",
+      "doi": "10.1080/00231940.2017.1343109",
+      "url": null,
+      "oa_url": null,
+      "status": "downloaded",
+      "note": "auto-download (3,528,918 bytes)"
+    },
+    {
+      "filename": "Wills_et_al_2022.pdf",
+      "doi": "10.1017/aaq.2022.33",
+      "url": null,
+      "oa_url": null,
+      "status": "failed",
+      "note": "could not download"
+    },
+    {
+      "filename": "Mattson_2025.pdf",
+      "doi": "10.1017/aaq.2024.59",
+      "url": null,
+      "oa_url": null,
+      "status": "failed",
+      "note": "could not download"
+    },
+    {
+      "filename": "Scarborough_et_al_2018.pdf",
+      "doi": "10.15184/aqy.2018.114",
+      "url": null,
+      "oa_url": null,
+      "status": "failed",
+      "note": "could not download"
+    },
+    {
+      "filename": "LeBlanc_2017.pdf",
+      "doi": "10.1007/978-3-319-59516-0_7",
+      "url": null,
+      "oa_url": null,
+      "status": "downloaded",
+      "note": "print-to-PDF (1,166,307 bytes)"
+    },
+    {
+      "filename": "Glatz_Plourde_2011.pdf",
+      "doi": "10.5615/bullamerschoorie.361.0033",
+      "url": null,
+      "oa_url": null,
+      "status": "downloaded",
+      "note": "publisher (248,493 bytes)"
+    },
+    {
+      "filename": "Dorshow_Wills_2022.pdf",
+      "doi": "10.1016/j.jasrep.2022.103650",
+      "url": null,
+      "oa_url": null,
+      "status": "downloaded",
+      "note": "publisher (140,322 bytes)"
+    },
+    {
+      "filename": "Bliege_Bird_Smith_2005.pdf",
+      "doi": "10.1086/427115",
+      "url": null,
+      "oa_url": null,
+      "status": "downloaded",
+      "note": "print-to-PDF (515,902 bytes)"
+    },
+    {
+      "filename": "Barclay_et_al_2021.pdf",
+      "doi": "10.1098/rstb.2020.0292",
+      "url": null,
+      "oa_url": null,
+      "status": "downloaded",
+      "note": "publisher (337,474 bytes)"
+    },
+    {
+      "filename": "Kennett_et_al_2017.pdf",
+      "doi": "10.1038/ncomms14115",
+      "url": null,
+      "oa_url": null,
+      "status": "downloaded",
+      "note": "auto-download (478,374 bytes)"
+    },
+    {
+      "filename": "Miller_2021.pdf",
+      "doi": "10.1086/713764",
+      "url": null,
+      "oa_url": null,
+      "status": "downloaded",
+      "note": "print-to-PDF (75,486 bytes)"
+    },
+    {
+      "filename": "Polyak_et_al_2022.pdf",
+      "doi": "10.1038/s41598-022-12220-6",
+      "url": null,
+      "oa_url": null,
+      "status": "downloaded",
+      "note": "auto-download (6,018,471 bytes)"
+    },
+    {
+      "filename": "Gauthier_2021.pdf",
+      "doi": "10.3389/feart.2020.620856",
+      "url": null,
+      "oa_url": null,
+      "status": "downloaded",
+      "note": "auto-download (1,789,077 bytes)"
+    },
+    {
+      "filename": "Gillreath_Brown_et_al_2024.pdf",
+      "doi": "10.1080/00231940.2024.2348941",
+      "url": null,
+      "oa_url": null,
+      "status": "downloaded",
+      "note": "auto-download (1,617,944 bytes)"
+    },
+    {
+      "filename": "Kohler_et_al_2023.pdf",
+      "doi": "10.1098/rstb.2022.0298",
+      "url": null,
+      "oa_url": null,
+      "status": "downloaded",
+      "note": "publisher (630,761 bytes)"
+    },
+    {
+      "filename": "Dungan_et_al_2018.pdf",
+      "doi": "10.15184/aqy.2018.135",
+      "url": null,
+      "oa_url": null,
+      "status": "downloaded",
+      "note": "auto-download (2,023,081 bytes)"
+    },
+    {
+      "filename": "Mills_et_al_2018.pdf",
+      "doi": "10.15184/aqy.2018.86",
+      "url": null,
+      "oa_url": null,
+      "status": "downloaded",
+      "note": "auto-download (2,270,793 bytes)"
+    },
+    {
+      "filename": "Hawkes_Bliege_Bird_2002.pdf",
+      "doi": "10.1002/evan.20005",
+      "url": null,
+      "oa_url": null,
+      "status": "downloaded",
+      "note": "auto-download (333,940 bytes)"
+    },
+    {
+      "filename": "Neiman_1997.pdf",
+      "doi": "10.1525/ap3a.1997.7.1.267",
+      "url": null,
+      "oa_url": null,
+      "status": "downloaded",
+      "note": "auto-download (4,090,173 bytes)"
+    },
+    {
+      "filename": "Trigger_1990.pdf",
+      "doi": "10.1080/00438243.1990.9980135",
+      "url": null,
+      "oa_url": null,
+      "status": "downloaded",
+      "note": "publisher (532,103 bytes)"
+    },
+    {
+      "filename": "Gintis_et_al_2001.pdf",
+      "doi": "10.1006/jtbi.2001.2406",
+      "url": null,
+      "oa_url": null,
+      "status": "downloaded",
+      "note": "auto-download (103,184 bytes)"
+    },
+    {
+      "filename": "Enquist_Leimar_1983.pdf",
+      "doi": "10.1016/0022-5193(83)90376-4",
+      "url": null,
+      "oa_url": null,
+      "status": "downloaded",
+      "note": "publisher (103,182 bytes)"
+    },
+    {
+      "filename": "Van_Dyke_2004.pdf",
+      "doi": "10.2307/4128399",
+      "url": null,
+      "oa_url": null,
+      "status": "failed",
+      "note": "could not download"
+    },
+    {
+      "filename": "Hull_et_al_2014.pdf",
+      "doi": "10.1016/j.jas.2014.02.016",
+      "url": null,
+      "oa_url": null,
+      "status": "downloaded",
+      "note": "publisher (103,171 bytes)"
+    },
+    {
+      "filename": "Crown_2018.pdf",
+      "doi": "10.1017/aaq.2018.7",
+      "url": null,
+      "oa_url": null,
+      "status": "downloaded",
+      "note": "auto-download (111,500 bytes)"
+    },
+    {
+      "filename": "Mills_et_al_2013.pdf",
+      "doi": "10.1073/pnas.1219966110",
+      "url": null,
+      "oa_url": null,
+      "status": "downloaded",
+      "note": "publisher (45,783 bytes)"
+    },
+    {
+      "filename": "Lentz_et_al_2021.pdf",
+      "doi": "10.1371/journal.pone.0258369",
+      "url": null,
+      "oa_url": null,
+      "status": "downloaded",
+      "note": "auto-download (4,326,034 bytes)"
+    },
+    {
+      "filename": "Penn_Szamado_2020.pdf",
+      "doi": "10.1111/brv.12563",
+      "url": null,
+      "oa_url": null,
+      "status": "downloaded",
+      "note": "publisher (1,248,971 bytes)"
+    },
+    {
+      "filename": "Van_Dyke_et_al_2024.pdf",
+      "doi": "10.15184/aqy.2024.54",
+      "url": null,
+      "oa_url": null,
+      "status": "failed",
+      "note": "could not download"
+    },
+    {
+      "filename": "Schwarz_2023.pdf",
+      "doi": "10.1016/j.jaa.2022.101479",
+      "url": null,
+      "oa_url": null,
+      "status": "downloaded",
+      "note": "publisher (103,176 bytes)"
+    },
+    {
+      "filename": "Plog_et_al_2022.pdf",
+      "doi": "10.2307/j.ctv29sfpn5.9",
+      "url": null,
+      "oa_url": null,
+      "status": "failed",
+      "note": "could not download"
+    }
+  ]
+}
