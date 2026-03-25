@@ -16,7 +16,7 @@ __author__ = "Carl Lipo"
 
 from .environment import Environment, EnvironmentConfig
 from .spatial import ChacoSpatialStructure, SpatialConfig, GreatHouse, GreatHouseType
-from .simulation import ChacoSimulation, SimulationConfig, Strategy, GroupState
+from .simulation import ChacoSimulation, SimulationConfig, GroupState
 from .analysis import (
     history_to_dataframe,
     generate_summary_report,
@@ -35,7 +35,6 @@ __all__ = [
     'GreatHouseType',
     'ChacoSimulation',
     'SimulationConfig',
-    'Strategy',
     'GroupState',
     'history_to_dataframe',
     'generate_summary_report',

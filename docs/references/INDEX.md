@@ -113,4 +113,58 @@ watson-et-al-2015-early-procurement-of-scarlet-macaws-and-the-emergence-of-socia
 Willsetal2014.pdf | Wills_et_al_2014 | empirical, critique, construction, paleoclimate | Systematic critique of the deforestation-collapse narrative for Chaco Canyon. Challenges five lines of evidence: packrat middens (only 2 dated samples for entire ceramic occupation), pollen records (may indicate no canyon woodland), fuel use (dominated by shrubs/Atriplex/Artemisia and maize cobs, not trees), construction timber species (spruce/fir covaried with ponderosa throughout Bonito Phase, Spearman r=0.66, P=0.01, not a late substitute), and strontium isotopes (cannot discriminate Chaco from Chuska sources due to overlapping 87Sr/86Sr ratios). GIS least-cost path analysis identifies eastern sources as competitive with Chuska Mountains. Construction investment declined in late AD 1000s before documented drought. 99% of great house architecture by volume within 40-km radius of Pueblo Bonito. Concludes no substantive evidence for deforestation or linkage to societal collapse. Caution: contested by Lentz et al. 2021 (pollen evidence for progressive anthropogenic deforestation). Relevant to cost parameter C stability, endogenous vs. exogenous collapse mechanisms, and spatial structure of signaling system. Published in PNAS 111(32):11584-11591 (Early Edition, 8 pp.). Claims: Wills_et_al_2014_claims.md. Summary: Wills_et_al_2014.md.
 
 Safi_2015_FinalDissDraft.pdf | Safi_2015 | signaling, empirical, construction, exchange, population | PhD dissertation (Washington State University): only study other than Kantner & Vaughn 2012 to directly apply CST to Chaco outlier great houses. Examines three PII great houses in southern Cibola sub-region (Largo Gap ~22 rooms, Cox Ranch Pueblo ~44 rooms, Cerro Pomo ~43 rooms), ~150 km south of Chaco Canyon. Verbal (not formal) model: great houses as costly signals at two levels (internal: attract/retain group members; external: signal competitive qualities to rival leaders). Derives 17 data expectations to distinguish CST from three alternatives (Chaco outpost, emulation, ideological system); 11 of 17 supported at community scale. Key empirical findings: multi-ethnic settlement (Mogollon + Pueblo traditions) at all communities; differential ceramic use at great houses vs. households (more smudged brown/red wares); exchange networks decentralized (INAA: ~11-15 non-local core sherds per great house, not restricted to great house contexts); obsidian from 3-6 unique sources per great house (XRF, n=168); momentary populations 73-273 per community (below 475-person viability threshold); construction during productive periods not environmental downturns; architectural elaboration increases with competitive pressure (remodeling adds Chacoan features). Concludes CST better accounts for outlier great house distribution than alternative models. Critical for our project: provides the most detailed empirical test data for CST predictions at outlier sites, but lacks formal modeling, environmental uncertainty analysis, and quantitative predictions that our three-layer model supplies. Claims: Safi_2015_claims.md. Summary: Safi_2015.md.
+
+NO_PDF | Perreault_2019 | theory, methodology | The Quality of the Archaeological Record. University of Chicago Press. Systematic treatment of how time-averaging, sample size, and resolution shape what archaeologists can infer. Relevant to justifying model-based approaches to incomplete records.
+
+NO_PDF | Lakatos_1970 | theory | Falsification and the methodology of scientific research programmes. In Criticism and the Growth of Knowledge (Lakatos and Musgrave, eds.), pp. 91-196, Cambridge UP. Introduces progressive vs. degenerating research programmes; framework used to evaluate whether the signaling model generates novel predictions beyond post hoc accommodation.
+
+NO_PDF | Kitcher_1981 | theory | Explanatory unification. Philosophy of Science 48(4):507-531. Argues that scientific explanation consists in unifying diverse phenomena under a common argument pattern. Supports the three-layer model's value as a unifying framework for Chaco evidence.
+
+NO_PDF | Mayo_2018 | theory, methodology | Statistical Inference as Severe Testing: How to Get Beyond the Statistics Wars. Cambridge UP. Develops the severe testing criterion: evidence supports a claim only if the test had a high probability of failing absent the effect. Provides the epistemological standard used to evaluate model predictions.
+
+NO_PDF | Lewontin_1974 | theory | The Genetic Basis of Evolutionary Change. Columbia UP. Foundational treatment of heritable variation in evolutionary systems. Cited for the principle that selection requires heritable quality variation, grounding the Spence condition in the model.
+
+NO_PDF | Gille_et_al_2017 | paleoclimate, methodology | Living Blended Drought Atlas (LBDA) Version 2. NOAA NCEI, doi:10.25921/7wk1-q848. Extends Cook et al. 2004 PDSI reconstruction by blending tree-ring and instrumental data. Primary paleoclimate dataset for sigma parameterization.
+
+NO_PDF | Turner_Turner_1999 | conflict, empirical | Man Corn: Cannibalism and Violence in the Prehistoric American Southwest. University of Utah Press. Comprehensive documentation of ~76 extreme processing events in the SW, most concentrated in the Chaco era. Key evidence for Layer 2 conflict deterrence interpretation.
+
+NO_PDF | Kuckelman_et_al_2002 | conflict, empirical | Bioarchaeology and taphonomy of violence at Castle Rock and Sand Canyon Pueblos, southwestern Colorado. American Antiquity 67(3):486-513. Documents intensive post-Chaco violence (late 1200s) at Mesa Verde region sites, supporting the prediction that conflict increases after signaling system collapse.
+
+NO_PDF | Mailath_1987 | signaling, modeling | Incentive compatibility in signaling games with a continuum of types. Econometrica 55(6):1349-1365. Formal proof that separating equilibria in signaling games with continuous type distributions require incentive compatibility constraints. Cited in Appendix A for the uniqueness proof.
+
+NO_PDF | Priem_et_al_2022 | methodology | OpenAlex: A fully-open index of scholarly works, authors, venues, institutions, and concepts. ArXiv 2205.01833. Open scholarly database used for systematic literature coverage assessment.
+
+NO_PDF | Vivian_1990 | review, construction, population | The Chacoan Prehistory of the San Juan Basin. Academic Press, San Diego. Comprehensive synthesis of Chaco archaeology emphasizing water management and community organization. Foundational reference for Chaco settlement and subsistence patterns.
+
+NO_PDF | Cordell_Gumerman_1989 | review, construction | Dynamics of Southwest Prehistory. Smithsonian Institution Press. Edited volume providing broad synthesis of SW prehistory; contains Judge 1989 chapter on Chaco-San Juan Basin pilgrimage model.
+
+NO_PDF | Crown_Judge_1991 | review, construction, exchange | Chaco and Hohokam: Prehistoric Regional Systems in the American Southwest. School of American Research Press, Santa Fe. Comparative volume examining Chaco and Hohokam as parallel regional systems.
+
+NO_PDF | Gumerman_1988 | review, construction, paleoclimate | The Anasazi in a Changing Environment. Cambridge UP. Edited volume examining Puebloan adaptations to environmental variability, including paleoclimatic reconstructions and settlement pattern data.
+
+NO_PDF | Gumerman_1994 | review, construction | Themes in Southwest Prehistory. School of American Research Press, Santa Fe. Edited volume synthesizing major interpretive themes across Southwestern archaeology.
+
+NO_PDF | Heitman_Plog_2015 | review, construction, chronology | Chaco Revisited: New Research on the Prehistory of Chaco Canyon, New Mexico. University of Arizona Press, Tucson. Updated synthesis of Chaco research incorporating post-2000 discoveries including Room 33 dating and archaeogenomics.
+
+NO_PDF | Noble_1984 | review, construction | New Light on Chaco Canyon. School of American Research Press, Santa Fe. Early synthetic volume incorporating remote sensing and ecological approaches to Chaco Canyon.
+
+NO_PDF | Noble_2004 | review, construction | In Search of Chaco: New Approaches to an Archaeological Enigma. School for Advanced Research Press, Santa Fe. Updated collection of perspectives on Chaco including landscape, roads, and outlier analyses.
+
+NO_PDF | Ortiz_1972 | review, construction, ethnohistoric | New Perspectives on the Pueblos. University of New Mexico Press, Albuquerque. Foundational edited volume on Pueblo ethnography and social organization, providing ethnographic context for interpreting Chaco social structures.
+
+NO_PDF | Van_Dyke_Heitman_2021 | review, construction | The Greater Chaco Landscape: Ancestors, Scholarship, and Advocacy. University Press of Colorado, Boulder. Most recent comprehensive Chaco volume integrating Indigenous perspectives, landscape approaches, and updated archaeological data.
+
+NO_PDF | Benson_et_al_2019 | empirical, population, paleoclimate | Prehistoric Chaco Canyon, New Mexico: Residential population implications of limited agricultural and mammal productivity. Journal of Archaeological Science 106:1-15. Estimates sustainable year-round canyon population at ~1,000 based on agricultural and faunal carrying capacity. Key constraint on population parameters.
+
+NO_PDF | Cook_et_al_2004 | paleoclimate, empirical | Long-term aridity changes in the western United States. Science 306(5698):1015-1018. North American Drought Atlas based on tree-ring reconstructed PDSI. Primary paleoclimate data source underlying the LBDA and sigma parameterization.
+
+NO_PDF | Guiterman_et_al_2015 | empirical, chronology, construction | Eleventh-century shift in timber procurement areas for the great houses of Chaco Canyon, NM. PNAS 112(44):13438-13443. Documents shift from Zuni to Chuska Mountain timber sources around AD 1020 based on 240,000+ dated timbers. Provides annual-resolution construction chronology central to the model's temporal predictions.
+
+NO_PDF | Renfrew_2001 | construction, exchange, signaling | Production and consumption in a sacred economy: The material correlates of high devotional expression at Chaco Canyon. American Antiquity 66(1):14-25. Proposes sacred economy model in which Chaco great houses and goods represent devotional expression rather than political economy. Alternative interpretive framework.
+
+NO_PDF | Judge_1989 | pilgrimage, construction, population | Chaco Canyon-San Juan Basin. In Dynamics of Southwest Prehistory (Cordell and Gumerman, eds.), pp. 209-261, Smithsonian. Develops the pilgrimage model for Chaco, proposing seasonal population influx rather than large permanent residence. Foundational for understanding canyon population dynamics.
+
+NO_PDF | Windes_1987 | empirical, construction, population | Investigations at the Pueblo Alto Complex, Chaco Canyon, New Mexico. Publications in Archeology 18F, Chaco Canyon Studies, NPS. Comprehensive excavation report documenting construction, use, and abandonment of Pueblo Alto. Key data on great house room function and refuse patterns.
+
+NO_PDF | Lekson_2006 | review, construction | The Archaeology of Chaco Canyon: An Eleventh-Century Pueblo Regional Center. School for Advanced Research Press, Santa Fe. Major edited volume synthesizing Chaco research as of the mid-2000s. Provides broad contextual framework for great house construction, regional organization, and political models.
 ```

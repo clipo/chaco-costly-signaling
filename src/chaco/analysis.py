@@ -15,7 +15,7 @@ from typing import List, Dict, Optional, Tuple, Any
 from dataclasses import dataclass, field
 from scipy import stats
 
-from .simulation import SimulationState, Strategy
+from .simulation import SimulationState
 
 
 @dataclass
@@ -268,8 +268,9 @@ class PeriodSummary:
     total_conflicts: int
     mean_productivity: float
     n_drought_years: int
-    dominant_strategy: Strategy
-    strategy_populations: Dict[Strategy, float]
+    mean_quality: float
+    high_quality_population: float  # q > median
+    low_quality_population: float   # q <= median
 
 
 def history_to_dataframe(history: List[SimulationState]) -> pd.DataFrame:
@@ -295,14 +296,20 @@ def history_to_dataframe(history: List[SimulationState]) -> pd.DataFrame:
             'is_drought': state.is_drought,
         }
 
-        # Strategy-specific populations
-        strategy_pops = {s: 0 for s in Strategy}
-        for group in state.groups.values():
-            if group.is_active:
-                strategy_pops[group.strategy] += group.population
-
-        for strategy, pop in strategy_pops.items():
-            record[f'pop_{strategy.value}'] = pop
+        # Quality-based population breakdown
+        active_groups = [g for g in state.groups.values() if g.is_active]
+        qualities = [g.quality for g in active_groups]
+        median_q = np.median(qualities) if qualities else 0
+        record['pop_high_quality'] = sum(
+            g.population for g in active_groups if g.quality > median_q
+        )
+        record['pop_low_quality'] = sum(
+            g.population for g in active_groups if g.quality <= median_q
+        )
+        record['mean_quality'] = np.mean(qualities) if qualities else 0
+        # Add sigma and lambda if available
+        record['sigma'] = getattr(state, 'sigma', 0.0)
+        record['current_lambda'] = getattr(state, 'current_lambda', 0.0)
 
         records.append(record)
 
@@ -426,21 +433,17 @@ def analyze_period(
     # Final state for cumulative values
     final = period_states[-1]
 
-    # Strategy populations
-    strategy_pops = {s: [] for s in Strategy}
+    # Quality-based population breakdown
+    high_q_pops = []
+    low_q_pops = []
+    mean_qualities = []
     for state in period_states:
-        state_strategy_pops = {s: 0 for s in Strategy}
-        for group in state.groups.values():
-            if group.is_active:
-                state_strategy_pops[group.strategy] += group.population
-        for strategy, pop in state_strategy_pops.items():
-            strategy_pops[strategy].append(pop)
-
-    mean_strategy_pops = {s: np.mean(pops) if pops else 0
-                          for s, pops in strategy_pops.items()}
-
-    # Dominant strategy
-    dominant = max(mean_strategy_pops, key=mean_strategy_pops.get)
+        active = [g for g in state.groups.values() if g.is_active]
+        qualities = [g.quality for g in active]
+        median_q = np.median(qualities) if qualities else 0
+        high_q_pops.append(sum(g.population for g in active if g.quality > median_q))
+        low_q_pops.append(sum(g.population for g in active if g.quality <= median_q))
+        mean_qualities.append(np.mean(qualities) if qualities else 0)
 
     return PeriodSummary(
         period_name=period_name,
@@ -453,8 +456,9 @@ def analyze_period(
         total_conflicts=final.total_conflicts,
         mean_productivity=float(np.mean(productivities)),
         n_drought_years=drought_years,
-        dominant_strategy=dominant,
-        strategy_populations=mean_strategy_pops
+        mean_quality=float(np.mean(mean_qualities)),
+        high_quality_population=float(np.mean(high_q_pops)),
+        low_quality_population=float(np.mean(low_q_pops)),
     )
 
 
@@ -462,58 +466,44 @@ def compare_strategies(
     history: List[SimulationState]
 ) -> pd.DataFrame:
     """
-    Compare outcomes by strategy type.
+    Compare outcomes by quality tier (high vs low quality groups).
 
     Returns:
-        DataFrame with strategy comparison metrics
+        DataFrame with quality-tier comparison metrics
     """
-    # Collect data from final state
     if not history:
         return pd.DataFrame()
 
     final = history[-1]
+    active = [g for g in final.groups.values() if g.is_active]
+    if not active:
+        return pd.DataFrame()
 
-    strategy_data = {s: {
-        'n_groups': 0,
-        'total_population': 0,
-        'total_monuments': 0,
-        'total_exotics': 0,
-        'total_conflicts': 0,
-        'total_deaths': 0,
-    } for s in Strategy}
+    qualities = [g.quality for g in active]
+    median_q = np.median(qualities)
 
-    for group in final.groups.values():
-        if not group.is_active:
-            continue
-
-        s = group.strategy
-        strategy_data[s]['n_groups'] += 1
-        strategy_data[s]['total_population'] += group.population
-        strategy_data[s]['total_monuments'] += group.monument_investment
-        strategy_data[s]['total_exotics'] += group.exotic_goods
-        strategy_data[s]['total_conflicts'] += group.cumulative_conflicts
-        strategy_data[s]['total_deaths'] += group.cumulative_deaths
+    tiers = {'high_quality': [], 'low_quality': []}
+    for group in active:
+        tier = 'high_quality' if group.quality > median_q else 'low_quality'
+        tiers[tier].append(group)
 
     records = []
-    for strategy, data in strategy_data.items():
-        record = {'strategy': strategy.value}
-        record.update(data)
-
-        # Calculate per-capita metrics
-        if data['n_groups'] > 0:
-            record['pop_per_group'] = data['total_population'] / data['n_groups']
-            record['monuments_per_group'] = data['total_monuments'] / data['n_groups']
-        else:
-            record['pop_per_group'] = 0
-            record['monuments_per_group'] = 0
-
-        if data['total_population'] > 0:
-            record['deaths_per_capita'] = data['total_deaths'] / data['total_population']
-            record['conflicts_per_capita'] = data['total_conflicts'] / data['total_population']
-        else:
-            record['deaths_per_capita'] = 0
-            record['conflicts_per_capita'] = 0
-
+    for tier_name, groups in tiers.items():
+        if not groups:
+            continue
+        record = {
+            'tier': tier_name,
+            'n_groups': len(groups),
+            'total_population': sum(g.population for g in groups),
+            'total_monuments': sum(g.monument_investment for g in groups),
+            'total_exotics': sum(g.exotic_goods for g in groups),
+            'total_conflicts': sum(g.cumulative_conflicts for g in groups),
+            'total_deaths': sum(g.cumulative_deaths for g in groups),
+            'mean_quality': float(np.mean([g.quality for g in groups])),
+            'mean_partners': float(np.mean([g.exchange_partners for g in groups])),
+            'pop_per_group': sum(g.population for g in groups) / len(groups),
+            'monuments_per_group': sum(g.monument_investment for g in groups) / len(groups),
+        }
         records.append(record)
 
     return pd.DataFrame(records)
@@ -647,15 +637,15 @@ def generate_summary_report(
         f"Exotic Goods-Stress Correlation: r = {exotic_corr:.3f}" + (f" (p = {exotic_p:.4f})" if not np.isnan(exotic_p) else ""),
         f"  (Positive = more exotics during stress)",
         f"",
-        f"--- STRATEGY COMPARISON ---",
+        f"--- QUALITY TIER COMPARISON ---",
     ]
 
     if not strategy_df.empty:
         for _, row in strategy_df.iterrows():
-            lines.append(f"  {row['strategy']}:")
+            lines.append(f"  {row['tier']}:")
             lines.append(f"    Groups: {row['n_groups']}, Population: {row['total_population']:,}")
             lines.append(f"    Monuments: {row['total_monuments']:.0f}, Exotics: {row['total_exotics']}")
-            lines.append(f"    Deaths/capita: {row['deaths_per_capita']:.3f}")
+            lines.append(f"    Mean Quality: {row['mean_quality']:.2f}, Mean Partners: {row['mean_partners']:.1f}")
 
     lines.append("")
     lines.append("--- PERIOD ANALYSIS ---")
@@ -665,7 +655,8 @@ def generate_summary_report(
         lines.append(f"    Mean Pop: {summary.mean_population:,.0f} (+/- {summary.std_population:.0f})")
         lines.append(f"    Monuments: {summary.total_monument_investment:.0f}")
         lines.append(f"    Drought Years: {summary.n_drought_years}")
-        lines.append(f"    Dominant Strategy: {summary.dominant_strategy.value}")
+        lines.append(f"    Mean Quality: {summary.mean_quality:.2f}")
+        lines.append(f"    High-Q Pop: {summary.high_quality_population:,.0f}, Low-Q Pop: {summary.low_quality_population:,.0f}")
 
     lines.append("")
     lines.append("=" * 70)
