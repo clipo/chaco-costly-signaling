@@ -86,21 +86,21 @@ layer3_y = 1.0
 draw_layer_box(ax, box_x, layer1_y, box_w, box_h,
                color_layer1, border_layer1,
                "Layer 1: Individual Signaling Equilibrium",
-               r"$c(x,q) = x^2 / (2q)$",
+               r"$c(x, q) = x^2 / (2q)$      $x^*(q) = \sqrt{\lambda(q^2 - q_{min}^2)}$",
                "Lineage quality \u2192 construction investment",
-               "Pueblo Bonito matriline (high q) \u2192 350+ rooms")
+               "Pueblo Bonito matriline (high q) \u2192 350+ rooms\nSmall houses ($q_{min}$) \u2192 zero monument investment")
 
 draw_layer_box(ax, box_x, layer2_y, box_w, box_h,
                color_layer2, border_layer2,
                "Layer 2: Intergroup Assessment",
-               "Monument stock \u2192 reduced conflict probability",
-               "High-visibility placement, acoustic broadcast",
-               'Result: "Pax Chaco"')
+               r"$\sigma_{eff} = \sigma_0 / \sqrt{1 + \kappa(M_g + M_h)}$      $P(conflict) \downarrow$ with $M$",
+               "Great houses in high-visibility locations (p < 0.001)",
+               'Result: "Pax Chaco" during florescence')
 
 draw_layer_box(ax, box_x, layer3_y, box_w, box_h,
                color_layer3, border_layer3,
                "Layer 3: Cooperation Networks",
-               r"$S(\sigma, k) = 1 - \sigma / (1 + \gamma k)$",
+               r"$S(\sigma, k) = \exp(-\sigma / (1 + \gamma k))$",
                "Exchange partners buffer environmental crises",
                r"Feedback: $\lambda(\sigma) = \lambda_0 + \lambda_1 \cdot \sigma$")
 

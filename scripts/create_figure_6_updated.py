@@ -25,10 +25,10 @@ COLORS = {
 }
 
 PERIODS = {
-    'Pre-Chaco\n(750-850)': (750, 850),
-    'Early Bonito\n(850-1020)': (850, 1020),
-    'Classic Bonito\n(1020-1130)': (1020, 1130),
-    'Late Bonito\n(1130-1200)': (1130, 1200),
+    'Pre-Chaco': (750, 850),
+    'Early\nBonito': (850, 1020),
+    'Classic\nBonito': (1020, 1130),
+    'Late\nBonito': (1130, 1200),
 }
 
 PERIOD_COLORS = [COLORS['cyan'], COLORS['green'], COLORS['orange'], '#CC79A7']
